@@ -1,0 +1,8 @@
+Sequence Diagram & Activity Diagram (Keyword UML) for:
+-->CSV Upload.
+-->User Registration.
+-->User Transactiond.
+-->Company Employee Updates.
+TIP By Billy-->(HTTP Requests)
+--------------------------------
+-->A class Diagram.
