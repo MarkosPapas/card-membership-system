@@ -4,6 +4,7 @@
 
 <?php
 echo phpinfo();
+print("O hi Mark");
 ?>
 
 </body>
