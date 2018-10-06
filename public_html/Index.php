@@ -12,15 +12,15 @@
     </div>
 
     <div class="flex-container">
-        <div>
+        
             <button>Companies</button>
-        </div>
-         <div>
+        
+         
              <button>Employees</button>
-         </div>
-        <div>
+         
+        
             <button>Company CSV Upload</button>
-        </div>  
+         
     </div>
 </body>
 </html>

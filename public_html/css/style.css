@@ -24,18 +24,23 @@ h5{
 }
 
 .flex-container {
-    margin-top:50px;
+    margin-top:80px;
     display: flex;
     flex-direction: column;
     background-color: #C2FFE4;
   }
   
-  .flex-container > div {
+  .flex-container > button {
     background-color: #f1f1f1;
     width: 500px;
     margin:15px auto;
     text-align: center;
     line-height: 75px;
     font-size: 30px;
+    border-radius:15px;
+  }
+  .flex-container > button:hover {
+    background-color: hotpink;
+    cursor:pointer;
   }
 
