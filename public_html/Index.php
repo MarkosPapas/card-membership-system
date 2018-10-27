@@ -1,3 +1,27 @@
+<?php
+    if($_POST) 
+    {
+        include "php/Connection.php";
+        $employee_id = filter_var($_POST['employee_id'],FILTER_SANITIZE_NUMBER_INT );
+        $card_id = filter_var($_POST['card_id'], FILTER_SANITIZE_NUMBER_INT);
+        $email = filter_var($_POST['employee_email'], FILTER_SANITIZE_EMAIL);
+
+        $sql = 'SELECT *  FROM users WHERE e_mail = "'.$email.'" AND employee_id = '.$employee_id.' AND card_id = '.$card_id; 
+        $result = $conn->query($sql);
+        if($result->num_rows > 0){
+            while($row=$result->fetch_assoc()){
+                if($row['active'] == 0){
+                    die("user not found, please contact your company for more information"); 
+                }
+                header('Location: http://www.Google.com/');
+                exit;
+            }
+        }
+        $conn->close();
+        exit;
+
+    }
+?>
 <!DOCTYPE html>
 <head> 
     <link href="css/style.css" rel="stylesheet">
@@ -29,15 +53,20 @@
             </div>
         </div>
         <div class="flex-container" id="fragment-employee-selection">
-            <label for="company_name">Employee ID</label> 
-            <input id="company_name" />
-            <label for="company_token">Email</label> 
-            <input id="company_token" />
-            <label for="company_token">Card ID</label> 
-            <input id="company_token" />
+        <form class="flex-container" action="index.php" method="post">
+            <label for="employee_id">Employee ID</label> 
+            <input id="employee_id" type="number" name="employee_id" maxlength="11" />
+
+            <label for="employee_email">Email</label> 
+            <input id="employee_email" type="email" name="employee_email" maxlength="50"/>
+
+            <label for="card_id">Card ID</label> 
+            <input id="card_id" type="number" name="card_id" maxlength="11"/>
+
             <div class="flex-container-horizontal">
-                <button> Login </button>
+                <button type="submit"> Login </button>
             </div>
+        </form>
         </div>
     </div>
     <script>
@@ -57,7 +86,18 @@
                     break;
 
                 case "contact-button" :
-                    alert("Contact button was clicked");
+                    <?php     
+                        $to_email = 'testmail1908@gmail.com';
+                        $subject = 'Testing PHP Mail';
+                        $message = 'This mail is sent using the PHP mail function';
+                        $headers = 'From:noreply@company.com';
+                        mail($to_email,$subject,$message,$headers);
+                        if (mail($to_email,$subject,$message,$headers)){
+                            ?>alert("Successful"); <?php
+                        }
+                        else  ?>alert(<?php echo error_get_last()['message'];?>); <?php
+                        
+                    ?>
                     break;
                 default:
                     alert("This button is not handled");
