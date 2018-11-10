@@ -1,0 +1,92 @@
+body, html {
+    margin:0;
+    background-color:#C2FFE4;
+}
+#root{
+
+  margin-top:80px;
+}
+#root > div:not(#fragment-selection){
+
+    display:none;
+}
+.header{
+    
+    background-color:black;
+    display:flex;
+}
+
+h1{
+    margin:auto auto;
+    margin-right:16.8vh;
+    text-align:center;
+    color:white;
+        
+}
+
+h5{
+    color: white;
+    text-decoration:underline; 
+    margin-right:20px;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #C2FFE4;
+  }
+
+  .flex-container > button {
+    background-color: #f1f1f1;
+    width: 500px;
+    margin:15px auto;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    border-radius:15px;
+  }
+  .flex-container > button:hover {
+    background-color: hotpink;
+    cursor:pointer;
+  }
+  .flex-container-horizontal{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+  }
+  .flex-container > label{
+    font-size: 30px;
+    font-weight: 400;
+  }
+  .flex-container-horizontal > button {
+    background-color: #f1f1f1;
+    width: 150px;
+    margin:15px auto;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px;
+    border-radius:15px;
+  }
+  .flex-container-horizontal > button:hover {
+    background-color: hotpink;
+    cursor:pointer;
+  }
+  .flex-container > input {
+    padding: 10px;
+    display:block;
+    background-color: #f1f1f1;
+    margin:15px auto;
+    line-height: 40px;
+    font-size: 30px;
+    border-radius:15px;
+    width:100%;
+  }
+  .flex-container > input:focus {
+    border-radius: 15px;
+  }
+
+#fragment-company-selection, #fragment-employee-selection{
+
+  width: 500px;
+  margin:auto;
+}
